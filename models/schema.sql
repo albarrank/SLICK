@@ -1,4 +1,4 @@
--- CREATE DATABASE slick_db;
+CREATE DATABASE slick_db;
 
 USE slick_db;
 
