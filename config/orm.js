@@ -4,7 +4,7 @@ var connection = require("./connection");
 var ormObject = {
   insertUserInfo: function(newUser, callback) {
     var queryString =
-      "INSERT INTO users (user_name, email, password, online), VALUES(?,?,?,?);";
+      "INSERT INTO users (user_name, email, password, online) VALUES (?,?,?,?);";
 
     connection.query(
       queryString,

@@ -1,3 +1,4 @@
+
 CREATE DATABASE users_db;
 
 USE users_db;
@@ -8,6 +9,6 @@ CREATE TABLE users
     user_name varchar(30) NOT NULL, 
     email varchar(25),
     password char(64),
-    online TINYINT unsigned NOTNULL,
+    online TINYINT unsigned NOT NULL,
     PRIMARY KEY (id)
 );
