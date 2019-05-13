@@ -6,6 +6,7 @@ var PORT = process.env.PORT || 3000;
 
 var htmlRoute = require("./routes/htmlRoutes");
 var apiRoute = require("./routes/apiRoutes");
+
 app.use("/api", apiRoute);
 app.use("/", htmlRoute);
 

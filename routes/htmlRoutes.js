@@ -1,9 +1,23 @@
 var db = require("../models");
+var express = require("express");
+var htmlRoutes = express.Router();
 
-var htmlRoutes = require("express").Router();
+htmlRoutes = express();
 
-htmlRoutes.get("/", function(req, res) {
-  res.send("hello world");
+//used to send css files along with index handlbar
+htmlRoutes.use(express.static("public"));
+
+var exphbs = require("express-handlebars");
+
+htmlRoutes.engine("handlebars", exphbs({ defaultLayout: "main" }));
+htmlRoutes.set("view engine", "handlebars");
+
+htmlRoutes.get("/signup", function(req, res) {
+  res.render("signUp");
+});
+
+htmlRoutes.get("/dashboard", function(req, res) {
+  res.render("dashboard");
 });
 
 module.exports = htmlRoutes;
