@@ -4,20 +4,11 @@ module.exports = function(io) {
   var messages = [];
   var isInitNotes = false;
   var socketCount = 0;
-  //==========================================================
-  var nsp = io.of("/example");
+  var userName = "Anonymous";
 
-  nsp.on("connection", function(socket) {
-    console.log("someone has joined the chat");
-  });
-  nsp.emit("hi", "everyone!");
-  //==========================================================
   io.sockets.on("connection", function(socket) {
-    // socket.on("create", function(room) {
-    //   socket.join(room);
-    // });
+    console.log("\n New user connected");
 
-    console.log("\n initial connection has been made");
     socketCount++;
     io.sockets.emit("users connected", socketCount);
 
@@ -27,13 +18,33 @@ module.exports = function(io) {
       io.sockets.emit("users connected", socketCount);
     });
 
-    socket.on("new message", function(data) {
-      console.log("messages was sent");
-      messages.push(data);
-
-      io.sockets.emit("new message", data);
-
-      chatOrm.insertMessage(data);
+    socket.on("signIn", function(userData) {
+      chatOrm.getAllUserData(function(data) {
+        for (var i = 0; i < data.length; i++) {
+          if (
+            userData.credentials.name === data[i].user_name &&
+            userData.credentials.password === data[i].password &&
+            data[i].online === 0
+          ) {
+            console.log("login succesful");
+            userName = data[i].user_name;
+            socket.emit("displayName", data[i].user_name);
+            break;
+          } else {
+            console.log("user not found");
+          }
+        }
+      });
+    });
+    socket.on("getUsers", function() {
+      var users = [];
+      chatOrm.getAllUserData(function(data) {
+        for (var i = 0; i < data.length; i++) {
+          users.push(data[i].user_name);
+        }
+        console.log(users);
+        socket.emit("displayUsers", { user: users });
+      });
     });
   });
 };

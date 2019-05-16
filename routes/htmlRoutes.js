@@ -12,6 +12,9 @@ var exphbs = require("express-handlebars");
 htmlRoutes.engine("handlebars", exphbs({ defaultLayout: "main" }));
 htmlRoutes.set("view engine", "handlebars");
 
+htmlRoutes.get("/", function(req, res) {
+  res.redirect("/dashboard");
+});
 htmlRoutes.get("/signup", function(req, res) {
   res.render("signUp");
 });

@@ -9,37 +9,12 @@
     <input id="userToChatWith">
     <textarea id="message"></textarea>
     <button id="test" type="submit">send message</button>
-    <div id="usersConnected"></div>
 </div>
 
 <div>
     <h1>Creating chat connections</h1>
     <input id="search" placeholder="look for user">
-    <button id="create">creat chat</button>
+    <button id="test2">creat chat</button>
 </div>
 
-<script>
-
-
-//Send messages to users within that chat room
-$(document).ready(function(){
-    var socket = io.connect('http://localhost:3000');
-
-    socket.on('users connected', function(data){
-        $('#usersConnected').html('Users connected: ' + data)
-    });
-    
-    $("#test").on("click", function(){
-        var userName = $("#userToChatWith").val().trim();
-        var message = $("#message").val().trim();
-        //console.log(userName,message);
-        socket.emit("new message", {message: message});
-    });
-//=============================================================    
-
-    //Make a Chat room
-    //var socket = io.connect();
-    //socket.emit("create", "room1");
-
-});
-</script>
+{{!-- <script src="/js/index.js"></script> --}}
