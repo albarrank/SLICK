@@ -1,1 +1,25 @@
 <h1>The Dashboard will go here</h1> 
+
+
+
+<div>
+    <form action="/api/messages" method="POST">
+        <input name="userToChatWith">
+        <textarea name="message"></textarea>
+        <button type="submit">send message</button>
+    </form>
+
+    <div id="usersConnected"></div>
+</div>
+<script>
+$(document).ready(function(){
+    // Connect to our node/websockets server
+    var socket = io.connect('http://localhost:3000');
+ 
+    // New socket connected, display new count on page
+    socket.on('users connected', function(data){
+        $('#usersConnected').html('Users connected: ' + data)
+    });
+ 
+});
+</script>

@@ -1,4 +1,4 @@
-var db = require("../models");
+var db = require("../models/chat");
 var express = require("express");
 var htmlRoutes = express.Router();
 
