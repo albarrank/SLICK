@@ -16,6 +16,11 @@ var ormObject = {
         callback(result);
       }
     );
+  },
+
+  insertMessage: function(message) {
+    console.log(message);
+    console.log("data was saved");
   }
 };
 

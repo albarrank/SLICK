@@ -6,15 +6,6 @@ var apiRoute = express.Router();
 
 apiRoute = express();
 
-//=============================================
-// var server = require("http").Server(apiRoute);
-// var io = require("socket.io")(server);
-
-// var messages = [];
-// var isInitNotes = false;
-// var socketCount = 0;
-//=============================================
-
 apiRoute.use(express.urlencoded({ extended: true }));
 apiRoute.use(express.json());
 
