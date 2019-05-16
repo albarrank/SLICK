@@ -33,9 +33,31 @@ var ormObject = {
   // eslint-disable-next-line no-empty-function
   userOffline: function() {},
 
-  insertMessage: function(message) {
-    console.log(message);
+  insertTaskData: function(taskObject, callback) {
+    var queryString =
+      "INSERT INTO tasks (id, category, task) VALUES (?, ?, ?);";
+
+    connection.query(
+      queryString,
+      [taskObject.id, taskObject.category, taskObject.task],
+      function(err, result) {
+        if (err) {
+          throw err;
+        }
+        callback(result);
+      }
+    );
     console.log("data was saved");
+  },
+
+  getDataByUserId: function(userId, callback) {
+    var queryString = "SELECT * FROM tasks WHERE id = ?;";
+    connection.query(queryString, [userId], function(err, result) {
+      if (err) {
+        throw err;
+      }
+      callback(result);
+    });
   }
 };
 

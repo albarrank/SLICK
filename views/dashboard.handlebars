@@ -1,20 +1,27 @@
-<h1>message app</h1> 
+<h1>Welcome message</h1> 
 <div>
-
+    <form action="/tasks" method="POST">
+        <select class="category" name="category" id="category">
+            <option value="food">Food</option>
+            <option value="study">Study/Work</option>
+        </select>
+        <textarea class="task" name="task"></textarea>
+        <button id="createTask">createTask</button>
+    </form>
 </div>
 
-
-<div>
-    <h1>Sendging messages</h1>
-    <input id="userToChatWith">
-    <textarea id="message"></textarea>
-    <button id="test" type="submit">send message</button>
+<div> 
+    <ul>
+        {{#each tasks}}
+            <label>{{this.category}}</label>
+                <li>{{this.task}}</li>
+        {{/each}}
+    </ul>
 </div>
 
-<div>
-    <h1>Creating chat connections</h1>
-    <input id="search" placeholder="look for user">
-    <button id="test2">creat chat</button>
-</div>
+<h2>show the users</h2>
+    <ul id="users">
+
+    </ul>
 
 {{!-- <script src="/js/index.js"></script> --}}

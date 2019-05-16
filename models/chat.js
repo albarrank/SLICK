@@ -4,7 +4,6 @@ module.exports = function(io) {
   var messages = [];
   var isInitNotes = false;
   var socketCount = 0;
-  var userName = "Anonymous";
 
   io.sockets.on("connection", function(socket) {
     console.log("\n New user connected");
@@ -18,24 +17,6 @@ module.exports = function(io) {
       io.sockets.emit("users connected", socketCount);
     });
 
-    socket.on("signIn", function(userData) {
-      chatOrm.getAllUserData(function(data) {
-        for (var i = 0; i < data.length; i++) {
-          if (
-            userData.credentials.name === data[i].user_name &&
-            userData.credentials.password === data[i].password &&
-            data[i].online === 0
-          ) {
-            console.log("login succesful");
-            userName = data[i].user_name;
-            socket.emit("displayName", data[i].user_name);
-            break;
-          } else {
-            console.log("user not found");
-          }
-        }
-      });
-    });
     socket.on("getUsers", function() {
       var users = [];
       chatOrm.getAllUserData(function(data) {

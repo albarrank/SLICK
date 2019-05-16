@@ -6,26 +6,6 @@ $(document).ready(function() {
     $("#usersConnected").html("Users connected: " + data);
   });
 
-  //JS for sign in stuff ==================================================
-  $(".btn").on("click", function() {
-    var userName = $("#userName")
-      .val()
-      .trim();
-    var password = $("#password")
-      .val()
-      .trim();
-
-    var credentials = {
-      name: userName,
-      password: password
-    };
-    socket.emit("signIn", { credentials: credentials });
-  });
-
-  socket.on("displayName", function(data) {
-    var html = "<h1>" + data + "</h1>";
-    $("#nameDisplay").html(html);
-  });
   // stuff for creating chats=====================================================
   socket.emit("getUsers");
 

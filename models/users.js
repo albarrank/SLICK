@@ -6,6 +6,24 @@ var users = {
     orm.insertUserInfo(newUser, function(result) {
       callback(result);
     });
+  },
+
+  getAllUsers: function(callback) {
+    orm.getAllUserData(function(result) {
+      callback(result);
+    });
+  },
+
+  saveTask: function(taskObject, callback) {
+    orm.insertTaskData(taskObject, function(result) {
+      callback(result);
+    });
+  },
+
+  getTaskDataByUserId: function(userId, callback) {
+    orm.getDataByUserId(userId, function(result) {
+      callback(result);
+    });
   }
 };
 
