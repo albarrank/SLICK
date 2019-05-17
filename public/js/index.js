@@ -2,13 +2,6 @@ $(document).ready(function() {
   // JS for Dashboard page ================================================
   var socket = io.connect("http://localhost:3000");
 
-  // $("#signOut").on("click", function() {
-  //   var online = {
-  //     online: false
-  //   };
-  //   $.post("/signOut", online);
-  // });
-
   socket.on("users connected", function(data) {
     $("#usersConnected").html("Users connected: " + data);
   });
