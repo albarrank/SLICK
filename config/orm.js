@@ -14,11 +14,11 @@ var ormObject = {
 
   insertUserInfo: function(newUser, callback) {
     var queryString =
-      "INSERT INTO users (user_name, email, password, online) VALUES (?,?,?,?);";
+      "INSERT INTO users (user_name, password, online) VALUES (?,?,?);";
 
     connection.query(
       queryString,
-      [newUser.userName, newUser.userEmail, newUser.userPass, true],
+      [newUser.userName, newUser.userPass, true],
       function(err, result) {
         if (err) {
           throw err;

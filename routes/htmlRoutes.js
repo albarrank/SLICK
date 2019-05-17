@@ -18,9 +18,21 @@ htmlRoutes.set("view engine", "handlebars");
 var userLoggedIn = " ";
 
 htmlRoutes.post("/signOut", function(req, res) {
-  // console.log(req.body);
   user.changeStatus(userLoggedIn, function(data) {
-    res.redirect("/signup");
+    res.redirect("/signIn");
+  });
+});
+
+htmlRoutes.post("/users", function(req, res) {
+  var newUser = {
+    userName: req.body.userName,
+    userPass: req.body.userPassword
+  };
+
+  user.adduser(newUser, function(data) {
+    console.log(data.insertId);
+    userLoggedIn = data.insertId;
+    res.redirect("/dashboard");
   });
 });
 
@@ -36,7 +48,7 @@ htmlRoutes.post("/tasks", function(req, res) {
   });
 });
 
-htmlRoutes.post("/sign-in", function(req, res) {
+htmlRoutes.post("/signIn", function(req, res) {
   var credentials = {
     name: req.body.userName,
     password: req.body.userPassword
@@ -67,13 +79,16 @@ htmlRoutes.get("/dashboard", function(req, res) {
     res.render("dashboard", { tasks: data });
   });
 });
-
-htmlRoutes.get("/signup", function(req, res) {
+htmlRoutes.get("/signUp", function(req, res) {
   res.render("signUp");
 });
 
+htmlRoutes.get("/signin", function(req, res) {
+  res.render("signin");
+});
+
 htmlRoutes.get("/", function(req, res) {
-  res.redirect("/signup");
+  res.redirect("/signin");
 });
 
 module.exports = htmlRoutes;

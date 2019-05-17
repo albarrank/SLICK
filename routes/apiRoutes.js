@@ -9,16 +9,15 @@ apiRoute = express();
 apiRoute.use(express.urlencoded({ extended: true }));
 apiRoute.use(express.json());
 
-apiRoute.post("/users", function(req, res) {
-  var newUser = {
-    userName: req.body.userName,
-    userEmail: req.body.userEmail,
-    userPass: req.body.userPassword
-  };
+// apiRoute.post("/users", function(req, res) {
+//   var newUser = {
+//     userName: req.body.userName,
+//     userPass: req.body.userPassword
+//   };
 
-  user.adduser(newUser, function() {
-    res.redirect("/dashboard");
-  });
-});
+//   user.adduser(newUser, function() {
+//     res.redirect("/dashboard");
+//   });
+// });
 
 module.exports = apiRoute;

@@ -1,8 +1,10 @@
-<h1> this is the sign up page</h1>
+<h1>this is the sign in page</h1>
+<form action="/signUp" method="GET">
+    <button type="submit">go to sign up page</button>
+</form><div>
 
-<div>
-
-    <form action="/users" method="POST">
+    <form action="/signin" method="POST">
+        <div id="usersConnected"></div>
         <input id="userName" name="userName" placeholder="Make a user name">
         <input id="password" name="userPassword" type="password" placeholder="password">
 
@@ -12,5 +14,3 @@
 
 
 </div>
-{{!-- <script src="/js/index.js"></script> --}}
-
