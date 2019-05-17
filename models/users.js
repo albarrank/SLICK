@@ -24,6 +24,19 @@ var users = {
     orm.getDataByUserId(userId, function(result) {
       callback(result);
     });
+  },
+
+  changeStatus: function(userId, callback) {
+    orm.setToOffline(userId, function(result) {
+      callback(result);
+    });
+  },
+
+  changeStatusSignOn: function(userId, callback) {
+    console.log(userId);
+    orm.setToOnline(userId, function(result) {
+      callback(result);
+    });
   }
 };
 

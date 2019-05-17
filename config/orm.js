@@ -28,10 +28,26 @@ var ormObject = {
     );
   },
 
-  // eslint-disable-next-line no-empty-function
-  userOnline: function() {},
-  // eslint-disable-next-line no-empty-function
-  userOffline: function() {},
+  setToOffline: function(userId, callback) {
+    var queryString = "UPDATE users SET online = ? WHERE id = ?;";
+    connection.query(queryString, [0, userId], function(err, result) {
+      if (err) {
+        throw err;
+      }
+      callback(result);
+    });
+  },
+
+  setToOnline: function(userId, callback) {
+    console.log("testing 2");
+    var queryString = "UPDATE users SET online = ? WHERE id = ?;";
+    connection.query(queryString, [1, userId], function(err, result) {
+      if (err) {
+        throw err;
+      }
+      callback(result);
+    });
+  },
 
   insertTaskData: function(taskObject, callback) {
     var queryString =

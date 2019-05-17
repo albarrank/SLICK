@@ -17,6 +17,13 @@ htmlRoutes.set("view engine", "handlebars");
 
 var userLoggedIn = " ";
 
+htmlRoutes.post("/signOut", function(req, res) {
+  // console.log(req.body);
+  user.changeStatus(userLoggedIn, function(data) {
+    res.redirect("/signup");
+  });
+});
+
 htmlRoutes.post("/tasks", function(req, res) {
   var tasks = {
     category: req.body.category,
@@ -34,9 +41,6 @@ htmlRoutes.post("/sign-in", function(req, res) {
     name: req.body.userName,
     password: req.body.userPassword
   };
-  // console.log(userLoggedIn);
-
-  // console.log(credentials);
 
   user.getAllUsers(function(data) {
     for (var i = 0; i < data.length; i++) {
@@ -45,14 +49,11 @@ htmlRoutes.post("/sign-in", function(req, res) {
         credentials.password === data[i].password &&
         data[i].online === 0
       ) {
-        // console.log("login succesful");
-
         userLoggedIn = data[i].id;
-
-        // console.log(userLoggedIn);
-
-        res.redirect("/dashboard");
-
+        console.log(userLoggedIn);
+        user.changeStatusSignOn(userLoggedIn, function(data) {
+          res.redirect("/dashboard");
+        });
         break;
       } else {
         console.log("user not found");
@@ -62,9 +63,7 @@ htmlRoutes.post("/sign-in", function(req, res) {
 });
 
 htmlRoutes.get("/dashboard", function(req, res) {
-  console.log("html get route here");
   user.getTaskDataByUserId(userLoggedIn, function(data) {
-    console.log(data);
     res.render("dashboard", { tasks: data });
   });
 });
