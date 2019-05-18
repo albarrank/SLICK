@@ -1,0 +1,143 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+/* * {
+  border: solid 1px red;
+} */
+
+body {
+  --template-teal: #26a69a;
+  /* --slick-blue: #36c5f0; */
+  --slick-blue: #42a5f5; /*blue lighten one*/
+  --slick-yellow: #ecb22e;
+  --slick-red: #e01e5a;
+  --slick-green: #2eb67d;
+}
+/*****************************/
+/* https://stackoverflow.com/questions/33862855/materialize-footer-not-going-to-bottom-of-page */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+/*****************************/
+.text-shadow {
+  text-shadow: 0.05rem 0.05rem 0.05rem rgba(0, 0, 0, 0.5),
+    0.05rem 0.05rem 0.05rem rgba(0, 0, 0, 0.5);
+}
+
+.box-shadow {
+  box-shadow: 0.05rem 0.05rem 0.05rem rgba(0, 0, 0, 0.7),
+    0.05rem 0.05rem 0.05rem rgba(0, 0, 0, 0.7);
+}
+/* .slick-blue-text {
+  color: var(--slick-blue);
+} */
+.font-half-partent {
+  font-size: 0.5em;
+}
+.slick-yellow-text {
+  color: var(--slick-yellow);
+}
+.slick-red-text {
+  color: var(--slick-red);
+}
+.slick-green-text {
+  color: var(--slick-green);
+}
+.slick-blue-bg {
+  background-color: var(--slick-blue);
+}
+.image-text {
+  font-weight: unset;
+  text-shadow: 1px, 1px rgba(0, 0, 0, 0.75);
+}
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.sidenav-trigger {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+.parallax-container .section {
+  width: 100%;
+}
+
+@media only screen and (max-width: 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+/*****************Userform CSS**********************/
+
+/* label color */
+.input-field label {
+  color: #000;
+}
+/* label focus color */
+.input-field input[type="text"]:focus + label {
+  color: #000;
+}
+/* label underline focus color */
+.input-field input[type="text"]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+/* valid color */
+.input-field input[type="text"].valid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+/* invalid color */
+.input-field input[type="text"].invalid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #000;
+}
+
+/*****************************************/
