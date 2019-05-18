@@ -147,4 +147,10 @@ footer.page-footer {
 .login {
   height: 2.5rem;
 }
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
 /*****************************************/

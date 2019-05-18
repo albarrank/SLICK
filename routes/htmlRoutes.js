@@ -18,7 +18,6 @@ var userLoggedIn = " ";
 
 htmlRoutes.post("/signOut", function(req, res) {
   user.changeStatus(userLoggedIn, function(data) {
-    userLoggedIn = " ";
     res.redirect("/home");
   });
 });
