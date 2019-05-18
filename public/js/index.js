@@ -14,6 +14,7 @@ $(document).ready(function() {
       $("#users").append(html);
     }
   });
+  $("select").formSelect();
 });
 
 var map;
@@ -55,7 +56,7 @@ function initMap() {
   var request = {
     location: map.center,
     radius: "1",
-    type: [type]
+    type: ["Restaurant"]
   };
 
   service = new google.maps.places.PlacesService(map);

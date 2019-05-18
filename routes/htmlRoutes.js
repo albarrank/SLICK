@@ -18,7 +18,7 @@ var userLoggedIn = " ";
 
 htmlRoutes.post("/signOut", function(req, res) {
   user.changeStatus(userLoggedIn, function(data) {
-    res.redirect("/signIn");
+    res.redirect("/home");
   });
 });
 
@@ -82,7 +82,18 @@ htmlRoutes.post("/signIn", function(req, res) {
 htmlRoutes.post("/map", function(req, res) {
   res.redirect("/map");
 });
+// get requests ==================================================================
+htmlRoutes.get("/createAccount", function(req, res) {
+  res.render("signUp");
+});
 
+htmlRoutes.get("/login", function(req, res) {
+  res.render("signIn");
+});
+
+htmlRoutes.get("/home", function(req, res) {
+  res.render("index");
+});
 htmlRoutes.get("/dashboard", function(req, res) {
   user.getTaskDataByUserId(userLoggedIn, function(data) {
     res.render("dashboard", { tasks: data });
@@ -102,7 +113,7 @@ htmlRoutes.get("/signin", function(req, res) {
 });
 
 htmlRoutes.get("/", function(req, res) {
-  res.redirect("/signin");
+  res.redirect("/home");
 });
 
 module.exports = htmlRoutes;

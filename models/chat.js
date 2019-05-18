@@ -1,8 +1,6 @@
 var chatOrm = require("../config/orm");
 
 module.exports = function(io) {
-  var messages = [];
-  var isInitNotes = false;
   var socketCount = 0;
 
   io.sockets.on("connection", function(socket) {

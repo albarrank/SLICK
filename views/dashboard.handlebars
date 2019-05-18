@@ -1,39 +1,76 @@
-<h1>Welcome message</h1> 
-    <form action="/signOut" method="POST">
-        <button id="signOut">signOut</button>
-    </form>
-<div>
-    <form action="/tasks" method="POST">
-        <select class="category" name="category" id="category">
-            <option value="Restaurant">Food</option>
-            <option value="Public Library">Study/Work</option>
-            <option value="Park">Work Out</option>
-            <option value="Amusement Center">Fun</option>
-        </select>
-        <textarea class="task" name="task"></textarea>
-        <button id="createTask">createTask</button>
-    </form>
-</div>
+<main>
+    <div class="container">
 
-<div> 
-    <div>
-        {{#each tasks}}
-        <form action="/delete" method="POST">
-            <input name="task" value="{{this.task}}" style="display:none;">
-            <button value="{{this.task}}" id="delete">x</button>
-        </form>
-            <h3 >{{this.category}}</h3>
-            <div>{{this.task}}</div>
-            <form action="/map" method="POST">
-                <button onClick="setSearchValue(this.value)" value="{{this.category}}">view map</button>
-            </form>
-        {{/each}}
+      {{#each tasks}}
+      <div class="row">
+        <div class="col s12 m12 l12 left">
+            <!-- card 1 -->
+          <div class="col s12 m6 l4">
+              <div class="card blue-grey lighten-5">
+                <div class="card-content black-text">
+                  <h3 class="card-title">{{this.category}}</h3>
+                  <p>
+                    {{this.task}}
+                  </p>
+                </div>
+                <div class="card-action">
+                    <form action="/map" method="POST">
+                      <button class="btn-small waves-effect waves-light blue lighten-1 z-depth-1" onClick="setSearchValue(this.value)" value="{{this.category}}">view map</button>
+                    </form>
+                    {{!-- <button class="btn-small waves-effect waves-light blue lighten-1 z-depth-1">Update</button> --}}
+                    <form action="/delete" method="POST">
+                      <input name="task" value="{{this.task}}" style="display: none;"> 
+                      <button class="right btn-small waves-effect waves-light red lighten-1 z-depth-1">Delete</button>
+                    </form>
+                </div>
+              </div>
+          </div>
+        </div> <!--end card col-->
+          
+      </div> <!--end row-->
+      {{/each}}
+          <!-- Fixed Action Button -->
+          <div class="row">
+                <form action="/tasks" method="POST" class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <select name="category" id="textarea1">
+                          <option value="" disabled selected>Choose your option</option>
+                          <option value="Restaurant">Food</option>
+                          <option value="Public Library">Study/Work</option>
+                          <option value="Park">Work Out</option>
+                          <option value="Amusement Center">Fun Stuff</option>
+                      </select>            
+                      <label for="textarea1">Select Category</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <textarea name="task" id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                      <label for="textarea2">Write Your task</label>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit">Create Task!</button>
+                  </div>
+                </form>
+          </div>
+
+          {{!-- <div class="fixed-action-btn"> --}}
+            {{!-- <a alt="Add Task" href="#modal1" class="btn-floating waves-effect waves-light green btn-large">
+              <i  class="large material-icons">add</i>
+            </a> --}}
+          {{!-- </div> --}}
+
+          {{!-- <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>Modal Header</h4>
+              <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+          </div> --}}
     </div>
-</div>
-
-<h2>show the users signed up</h2>
-    <ul id="users">
-
-    </ul>
-
+      
+</main>
 <script src="/js/index.js"></script>

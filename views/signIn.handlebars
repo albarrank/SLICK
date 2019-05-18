@@ -1,16 +1,35 @@
-<h1>this is the sign in page</h1>
-<form action="/signUp" method="GET">
-    <button type="submit">go to sign up page</button>
-</form><div>
-
-    <form action="/signin" method="POST">
-        <div id="usersConnected"></div>
-        <input id="userName" name="userName" placeholder="Make a user name">
-        <input id="password" name="userPassword" type="password" placeholder="password">
-
-        <button class="btn" type="submit">Sign Up!</button>
-    </form>
-
-
-
-</div>
+<main>
+    <div class="container valign-wrapper">
+    <div class="row" style="min-width: 50%; margin-top: 5%">
+        <form action="/signIn" method="POST" class="blue-grey lighten-5 z-depth-2 col s12 m12 l12">
+            <!-- Username -->
+            <div class="row">
+                <div class="input-field col s12 m12 l12">
+                <i class="material-icons prefix blue-text">account_circle</i>
+                <input id="last_name" name="userName" type="text" class="validate blue-text" />
+                <label for="last_name" class="active blue-text"
+                    >User Name</label
+                >
+                </div>
+            <!-- Password -->
+            <div class="row">
+                <div class="input-field col s12 m12 l12">
+                <i class="material-icons prefix blue-text">lock</i>
+                <input
+                    name="userPassword"
+                    id="password"
+                    type="password"
+                    class="validate blue-text"
+                />
+                <label for="password" class="active blue-text">Password</label>
+                </div>
+            </div>
+            <!-- Log In BUtton -->
+            <div class="row center">
+                <button class="btn" type="submit">Log In</button>
+            </div>
+        </form>
+    </div>
+    </div>
+    <!--End Container-->
+</main>
