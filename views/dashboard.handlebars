@@ -14,12 +14,13 @@
 </div>
 
 <div> 
-    <ul>
+    <div>
         {{#each tasks}}
-            <label>{{this.category}}</label>
-                <li>{{this.task}}</li>
+            <h3 >{{this.category}}</h3>
+            <div>{{this.task}}</div>
+            <button onClick="test(this.value)" value="{{this.category}}">view map</button>
         {{/each}}
-    </ul>
+    </div>
 </div>
 
 <h2>show the users signed up</h2>

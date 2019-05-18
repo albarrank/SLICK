@@ -48,6 +48,9 @@ htmlRoutes.post("/tasks", function(req, res) {
   });
 });
 
+htmlRoutes.post("/delete", function(req, res) {
+  console.log(req.body);
+});
 htmlRoutes.post("/signIn", function(req, res) {
   var credentials = {
     name: req.body.userName,
@@ -79,6 +82,11 @@ htmlRoutes.get("/dashboard", function(req, res) {
     res.render("dashboard", { tasks: data });
   });
 });
+
+htmlRoutes.get("/map", function(req, res) {
+  res.render("map");
+});
+
 htmlRoutes.get("/signUp", function(req, res) {
   res.render("signUp");
 });
