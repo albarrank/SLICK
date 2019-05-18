@@ -5,7 +5,6 @@ var htmlRoutes = express.Router();
 
 htmlRoutes = express();
 
-//used to send css files along with index handlbar
 htmlRoutes.use(express.static("public"));
 htmlRoutes.use(express.urlencoded({ extended: true }));
 htmlRoutes.use(express.json());
@@ -42,15 +41,18 @@ htmlRoutes.post("/tasks", function(req, res) {
     task: req.body.task,
     id: userLoggedIn
   };
-  // console.log(userLoggedIn);
   user.saveTask(tasks, function(data) {
     res.redirect("/dashboard");
   });
 });
 
 htmlRoutes.post("/delete", function(req, res) {
-  console.log(req.body);
+  user.deleteTask(req.body.task, function(result) {
+    console.log(result);
+    res.redirect("/dashboard");
+  });
 });
+
 htmlRoutes.post("/signIn", function(req, res) {
   var credentials = {
     name: req.body.userName,
@@ -75,6 +77,10 @@ htmlRoutes.post("/signIn", function(req, res) {
       }
     }
   });
+});
+
+htmlRoutes.post("/map", function(req, res) {
+  res.redirect("/map");
 });
 
 htmlRoutes.get("/dashboard", function(req, res) {

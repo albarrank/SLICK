@@ -20,6 +20,12 @@ var users = {
     });
   },
 
+  deleteTask: function(taskName, callback) {
+    orm.deleteFromTable(taskName, function(result) {
+      callback(result);
+    });
+  },
+
   getTaskDataByUserId: function(userId, callback) {
     orm.getDataByUserId(userId, function(result) {
       callback(result);

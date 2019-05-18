@@ -65,6 +65,16 @@ var ormObject = {
     );
     console.log("data was saved");
   },
+  deleteFromTable: function(task, callback) {
+    var queryString = "DELETE FROM tasks WHERE task = ?;";
+
+    connection.query(queryString, [task], function(err, result) {
+      if (err) {
+        throw err;
+      }
+      callback(result);
+    });
+  },
 
   getDataByUserId: function(userId, callback) {
     var queryString = "SELECT * FROM tasks WHERE id = ?;";

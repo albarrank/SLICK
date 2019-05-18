@@ -5,8 +5,10 @@
 <div>
     <form action="/tasks" method="POST">
         <select class="category" name="category" id="category">
-            <option value="food">Food</option>
-            <option value="study">Study/Work</option>
+            <option value="Restaurant">Food</option>
+            <option value="Public Library">Study/Work</option>
+            <option value="Park">Work Out</option>
+            <option value="Amusement Center">Fun</option>
         </select>
         <textarea class="task" name="task"></textarea>
         <button id="createTask">createTask</button>
@@ -16,9 +18,15 @@
 <div> 
     <div>
         {{#each tasks}}
+        <form action="/delete" method="POST">
+            <input name="task" value="{{this.task}}" style="display:none;">
+            <button value="{{this.task}}" id="delete">x</button>
+        </form>
             <h3 >{{this.category}}</h3>
             <div>{{this.task}}</div>
-            <button onClick="test(this.value)" value="{{this.category}}">view map</button>
+            <form action="/map" method="POST">
+                <button onClick="setSearchValue(this.value)" value="{{this.category}}">view map</button>
+            </form>
         {{/each}}
     </div>
 </div>
@@ -28,4 +36,4 @@
 
     </ul>
 
-{{!-- <script src="/js/index.js"></script> --}}
+<script src="/js/index.js"></script>
