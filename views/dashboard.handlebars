@@ -1,4 +1,29 @@
-<main>
+     <main>     
+          <div style="width: 70%" class="row">
+                <form action="/tasks" method="POST" class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <select name="category" id="textarea1">
+                          <option value="" disabled selected>Choose your option</option>
+                          <option value="Restaurant">Food</option>
+                          <option value="Public Library">Study/Work</option>
+                          <option value="Park">Work Out</option>
+                          <option value="Amusement Center">Fun Stuff</option>
+                      </select>            
+                      <label for="textarea1">Select Category</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <textarea name="task" id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                      <label for="textarea2">Write Your task</label>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit">Create Task!</button>
+                  </div>
+                </form>
+          </div>
+
     <div class="container">
 
       {{#each tasks}}
@@ -30,30 +55,6 @@
       </div> <!--end row-->
       {{/each}}
           <!-- Fixed Action Button -->
-          <div class="row">
-                <form action="/tasks" method="POST" class="col s12">
-                  <div class="row">
-                    <div class="input-field col s6">
-                      <select name="category" id="textarea1">
-                          <option value="" disabled selected>Choose your option</option>
-                          <option value="Restaurant">Food</option>
-                          <option value="Public Library">Study/Work</option>
-                          <option value="Park">Work Out</option>
-                          <option value="Amusement Center">Fun Stuff</option>
-                      </select>            
-                      <label for="textarea1">Select Category</label>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="input-field col s6">
-                      <textarea name="task" id="textarea2" class="materialize-textarea" data-length="120"></textarea>
-                      <label for="textarea2">Write Your task</label>
-                    </div>
-                    <button class="btn waves-effect waves-light" type="submit">Create Task!</button>
-                  </div>
-                </form>
-          </div>
 
           {{!-- <div class="fixed-action-btn"> --}}
             {{!-- <a alt="Add Task" href="#modal1" class="btn-floating waves-effect waves-light green btn-large">
