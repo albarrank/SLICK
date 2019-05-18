@@ -140,6 +140,11 @@ footer.page-footer {
   color: #000;
 }
 .btn {
-  background: #000;
+  background: black;
+  height: 4rem;
+  margin-left: 1rem;
+}
+.login {
+  height: 2.5rem;
 }
 /*****************************************/
