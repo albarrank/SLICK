@@ -1,15 +1,170 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <title>Home Page</title>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>    
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link
+      rel="shortcut icon"
+      type="image/svg"
+      href="/images/logo-colors-only.svg"
+    />
+    <!-- CSS  -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="/styles/materialize.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="/styles/style.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+     <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        width: 100%;
+        height: 20rem;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <title>Slick</title>
+  </head>
 
-<body>
-  {{{body}}}
+  <body>
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a href="./index.html ">
+          <img
+            src="/images/slick-logo.png"
+            alt="Slick Logo"
+            id="logo-container"
+            class="brand-logo"
+            style="max-height: 80%; margin-top: .75%"
+        /></a>
+
+        <ul class="right hide-on-med-and-down">
+          <li><form action="/home" method="GET"><button class="btn" type="submit">Home</button></form></li>
+          <li><form action="/dashboard" method="GET"><button class="btn" type="submit">Dashboard</button></form></li>
+          <li><form action="/login" method="GET"><button class="btn" type="submit">Log In</button></form></li>
+          <li><form action="/createAccount" method="GET"><button class="btn" type="submit">Create Account</button></form></li>
+          <li><form action="/signOut" method="POST"><button class="btn" type="submit">Sign Out</button></form></li>
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+          <li><form action="/home" method="GET"><button class="btn" type="submit">Home</button></form></li>
+          <li><form action="/dashboard" method="GET"><button class="btn" type="submit">Dashboard</button></form></li>
+          <li><form action="/login" method="GET"><button class="btn" type="submit">Log In</button></form></li>
+          <li><form action="/createAccount" method="GET"><button class="btn" type="submit">Create Account</button></form></li>
+          <li><form action="/signOut" method="POST"><button class="btn" type="submit">Sign Out</button></form></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"
+          ><i class="material-icons black-text">menu</i></a
+        >
+      </div>
+    </nav>
+    {{{body}}}
+        <footer class="page-footer slick-blue-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Company Bio</h5>
+            <p class="grey-text text-lighten-4">
+              We are a team of college students working on this project like
+              it's our full time job. Any amount would help support and continue
+              development on this project and is greatly appreciated.
+            </p>
+          </div>
+          <div class="col l5 s12">
+            <h5 class="white-text">
+              Join the
+              <img
+                src="./images/slick-white.svg"
+                alt=""
+                style="max-height:20px"
+              />slick revolution!
+            </h5>
+            <ul>
+              <li>
+                <a class="white-text" href="#!"
+                  >Connect with us on facebook
+                  <img src="./images/facebook.svg" alt=""
+                /></a>
+              </li>
+              <li>
+                <a class="white-text" href="#!"
+                  >Follow on twitter <img src="./images/twitter.svg"
+                /></a>
+              </li>
+              <li>
+                <a class="white-text" href="#!"
+                  >Contribute on github <img src="./images/github.svg" alt=""
+                /></a>
+              </li>
+              <li>
+                <a class="white-text" href="#!"
+                  >Let everybody know!
+                  <img src="./images/share.svg" alt="" class="s"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col s12 l3">
+              Made with
+              <a
+                class="brown-text text-lighten-3"
+                href="http://materializecss.com"
+                >Materialize</a
+              >
+            </div>
+            <div class="col s12 l3 white-text">
+              &copy; 2019 The Final Pandas
+            </div>
+            <a
+              class="col s12 l3 white-text"
+              href="https://icons8.com/icon/pack/social-networks/material"
+              >Social media icons by Icons8</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/js/materialize.js"></script>
+    <script src="/js/init.js"></script>
 </body>
 
 </html>
