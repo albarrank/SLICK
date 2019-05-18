@@ -36,7 +36,7 @@ function initMap() {
   });
 
   var request = {
-    query: "Museum of Contemporary Art Australia",
+    query: "Sydney",
     fields: ["name", "geometry"]
   };
 
